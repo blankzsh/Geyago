@@ -1,0 +1,190 @@
+{
+  "_comment": "配置文件示例 - 复制此文件为 config.json 并填入真实的配置信息",
+  "server": {
+    "host": "0.0.0.0",
+    "port": 5000,
+    "debug": false
+  },
+  "database": {
+    "url": "sqlite:///question_bank.db"
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "text"
+  },
+  "app": {
+    "name": "Geyago智能题库",
+    "version": "1.0.0",
+    "default_ai": "ali",
+    "homepage": "https://toni.wang/"
+  },
+  "api_config": {
+    "timeout": 30,
+    "max_retries": 3,
+    "retry_delay": 2
+  },
+  "ai_providers": {
+    "siliconflow": {
+      "name": "SiliconFlow",
+      "enabled": false,
+      "api_key": "your-siliconflow-api-key-here",
+      "base_url": "https://api.siliconflow.cn/v1/chat/completions",
+      "models": {
+        "default": "Qwen/QwQ-32B",
+        "available": [
+          "Qwen/QwQ-32B",
+          "Qwen/Qwen2.5-7B-Instruct",
+          "deepseek-ai/DeepSeek-V3",
+          "meta-llama/Llama-3.1-8B-Instruct"
+        ]
+      },
+      "request_format": "openai_compatible",
+      "headers": {
+        "Authorization": "Bearer ${api_key}",
+        "Content-Type": "application/json"
+      },
+      "parameters": {
+        "max_tokens": 512,
+        "temperature": 0.1,
+        "top_p": 0.9,
+        "stream": false
+      },
+      "auth_type": null,
+      "secret_key": null
+    },
+    "ali": {
+      "name": "阿里百炼平台",
+      "enabled": false,
+      "api_key": "your-ali-dashscope-api-key-here",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+      "models": {
+        "default": "qwen-plus",
+        "available": [
+          "qwen-turbo",
+          "qwen-plus",
+          "qwen-max",
+          "qwen2-1.5b-instruct",
+          "qwen-plus-latest"
+        ]
+      },
+      "request_format": "ali_custom",
+      "headers": null,
+      "parameters": {
+        "temperature": 0.1,
+        "top_p": 0.9,
+        "penalty_score": 1.0
+      },
+      "auth_type": null,
+      "secret_key": null
+    },
+    "zhipu": {
+      "name": "智谱AI",
+      "enabled": false,
+      "api_key": "your-zhipu-api-key-here",
+      "base_url": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+      "models": {
+        "default": "glm-4-flash",
+        "available": [
+          "glm-4-flash",
+          "glm-4",
+          "glm-4-plus",
+          "glm-4-0520",
+          "glm-4-airx",
+          "glm-4-air"
+        ]
+      },
+      "request_format": "openai_compatible",
+      "headers": {
+        "Authorization": "Bearer ${api_key}",
+        "Content-Type": "application/json"
+      },
+      "parameters": {
+        "max_tokens": 512,
+        "temperature": 0.1,
+        "top_p": 0.9
+      },
+      "auth_type": null,
+      "secret_key": null
+    },
+    "openai": {
+      "name": "OpenAI",
+      "enabled": false,
+      "api_key": "your-openai-api-key-here",
+      "base_url": "https://api.openai.com/v1/chat/completions",
+      "models": {
+        "default": "gpt-3.5-turbo",
+        "available": [
+          "gpt-3.5-turbo",
+          "gpt-4",
+          "gpt-4-turbo",
+          "gpt-4o",
+          "gpt-4o-mini"
+        ]
+      },
+      "request_format": "openai_compatible",
+      "headers": {
+        "Authorization": "Bearer ${api_key}",
+        "Content-Type": "application/json"
+      },
+      "parameters": {
+        "max_tokens": 512,
+        "temperature": 0.1,
+        "top_p": 0.9
+      },
+      "auth_type": null,
+      "secret_key": null
+    },
+    "gemini": {
+      "name": "Google Gemini",
+      "enabled": false,
+      "api_key": "your-gemini-api-key-here",
+      "base_url": "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+      "models": {
+        "default": "gemini-1.5-flash",
+        "available": [
+          "gemini-1.5-flash",
+          "gemini-1.5-pro",
+          "gemini-pro",
+          "gemini-pro-vision"
+        ]
+      },
+      "request_format": "gemini_custom",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "parameters": {
+        "temperature": 0.1,
+        "topP": 0.9,
+        "maxOutputTokens": 512
+      },
+      "auth_type": null,
+      "secret_key": null
+    },
+    "ollama": {
+      "name": "Ollama本地",
+      "enabled": false,
+      "api_key": "",
+      "base_url": "http://localhost:11434/api/chat",
+      "models": {
+        "default": "qwen2.5:7b",
+        "available": [
+          "qwen2.5:7b",
+          "qwen2.5:14b",
+          "llama3.1:8b",
+          "gemma2:9b"
+        ]
+      },
+      "request_format": "ollama_custom",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "parameters": {
+        "temperature": 0.1,
+        "top_p": 0.9,
+        "num_predict": 512
+      },
+      "auth_type": null,
+      "secret_key": null
+    }
+  }
+}

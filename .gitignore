@@ -1,0 +1,247 @@
+# ===================================================================
+# 🎭 Geyago智能题库项目 - 完整 Gitignore 配置
+# ===================================================================
+
+# 📁 临时文件和缓存目录
+tmp/
+temp/
+*.tmp
+*.temp
+*.cache
+*.bak
+*.swp
+*.swo
+*~
+
+# 🐍 Python 相关文件
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# 代码检查和类型检查
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+cython_debug/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Python 环境管理
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+__pypackages__/
+
+# 🌐 Node.js / Vue.js 前端相关
+# Node 依赖和构建输出
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# 构建输出
+dist/
+dist-ssr/
+*.local
+
+# Vite
+.vite-cache/
+
+# 编辑器和IDE配置
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+
+# PyCharm
+.idea/
+
+# 其他编辑器
+*.sublime-project
+*.sublime-workspace
+.spyderproject
+.spyproject
+.ropeproject
+.fmpp/
+*.orig
+.rej
+
+# 🗄️ 数据库文件
+# 项目数据库文件
+*.db
+*.sqlite
+*.sqlite3
+question_bank.db
+
+# 📝 日志文件
+# 应用日志
+logs/
+*.log
+server_debug.log
+debug.log
+error.log
+access.log
+app.log
+
+# 系统日志
+pip-log.txt
+pip-delete-this-directory.txt
+
+# 🔒 敏感信息文件
+# 环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.staging.local
+
+# API密钥和配置
+config.json
+config.local.json
+secrets.json
+*.pem
+*.key
+*.crt
+*.p12
+
+# 🖼️ 操作系统生成的文件
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# 🤖 AI工具链相关文件
+# Claude相关
+.claude/session_history/
+.claude/cache/
+
+# Serena相关
+.serena/cache/
+.serena/logs/
+
+# BMad工作流临时文件
+.bmad-core/temp/
+.bmad-core/cache/
+
+# 📦 项目特定忽略
+# 项目运行时生成的文件
+uploads/
+media/
+static/uploads/
+user_files/
+
+# 数据备份文件
+*.backup
+*.bak
+*.old
+
+# 临时导出文件
+exports/
+*.csv.bak
+*.json.bak
+
+# 🔧 开发工具忽略
+# 本地配置覆盖
+local_settings.py
+settings_local.py
+config_local.py
+
+# 性能分析文件
+*.prof
+*.profile
+
+# 文档构建输出
+docs/_build/
+site/
+
+# 容器和部署
+docker-compose.override.yml
+.env.override
+
+# ===================================================================
+# 📋 注意事项：
+# 1. .env.example 和 .env.template 文件应该保留在版本控制中
+# 2. uv.lock 文件对于依赖重现很重要，建议保留
+# 3. 如果需要，可以取消注释特定工具的锁定文件
+# ===================================================================
+
+# 依赖锁定文件（根据需要调整）
+# poetry.lock
+# pdm.lock
