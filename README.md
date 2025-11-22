@@ -12,11 +12,11 @@
 ## ✨ 特性
 
 ### 🤖 多AI服务提供商支持
-- **硅基流动** - 高性能AI服务 (默认)
-- **OpenAI兼容接口** - 支持OpenAI API格式
+- **阿里云百炼平台** - 阿里云AI服务 (默认)
+- **智谱AI** - GLM系列大模型
+- **硅基流动** - 高性能AI服务
+- **OpenAI** - OpenAI GPT系列模型
 - **Google Gemini** - Google最新AI模型
-- **百度文心一言** - 百度AI服务
-- **阿里云通义千问** - 阿里云AI服务
 - **Ollama** - 本地AI模型部署支持
 
 ### 💾 智能缓存与管理
@@ -60,11 +60,10 @@
 
 ```bash
 # 1. 克隆项目
-git clone https://github.com/blankzsh/geyago.git
-cd geyago
+git clone https://github.com/blankzsh/Geyago.git
+cd Geyago
 
 # 2. 后端设置
-cd backend  # 或项目根目录
 uv sync --dev
 
 # 3. 前端设置
@@ -72,18 +71,15 @@ cd frontend
 npm install
 
 # 4. 环境配置
-# 复制并编辑环境配置文件
-cp .env.example .env
-# 编辑 .env 文件，设置你的API密钥
+# 复制并编辑配置文件
+cp config.example.json config.json
+# 编辑 config.json 文件，设置你的API密钥
 
-# 5. 初始化数据库
-make init-db
-
-# 6. 启动服务
+# 5. 启动服务
 # 后端服务 (终端1)
 make run
 # 或者
-uv run python -m geyago
+uv run python -m geyago.main
 
 # 前端服务 (终端2)
 cd frontend
@@ -98,57 +94,57 @@ npm run dev
 
 ### 配置
 
-在 `.env` 文件中设置以下配置：
+在 `config.json` 文件中设置以下配置：
 
-```env
-# 服务器配置
-HOST=0.0.0.0
-PORT=5000
-DEBUG=false
-
-# AI服务配置
-AI_PROVIDER=siliconflow
-API_KEY=your_siliconflow_api_key_here
-
-# 可选的AI提供商配置
-# OPENAI_API_KEY=your_openai_api_key_here
-# GEMINI_API_KEY=your_gemini_api_key_here
-# BAIDU_API_KEY=your_baidu_api_key_here
-# BAIDU_SECRET_KEY=your_baidu_secret_key_here
-# ALI_API_KEY=your_ali_api_key_here
-# ALI_SECRET_KEY=your_ali_secret_key_here
-# OLLAMA_BASE_URL=http://localhost:11434
-
-# 数据库配置
-DATABASE_URL=sqlite:///question_bank.db
-
-# 前端配置 (Vite自动代理)
-VITE_API_BASE_URL=http://localhost:5000
+```json
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 5000,
+    "debug": false
+  },
+  "database": {
+    "url": "sqlite:///question_bank.db"
+  },
+  "app": {
+    "name": "Geyago智能题库",
+    "default_ai": "ali"
+  },
+  "ai_providers": {
+    "ali": {
+      "name": "阿里百炼平台",
+      "enabled": true,
+      "api_key": "your-ali-dashscope-api-key-here"
+    }
+  }
+}
 ```
+
+详细的配置选项请参考 `config.example.json` 文件。
 
 ### 🔑 获取API密钥
 
 **支持的AI服务提供商:**
 
-1. **硅基流动** (推荐)
+1. **阿里云百炼平台** (默认)
+   - [官网](https://dashscope.aliyun.com/)
+   - 支持通义千问系列模型
+
+2. **智谱AI**
+   - [官网](https://open.bigmodel.cn/)
+   - 支持GLM-4系列模型
+
+3. **硅基流动**
    - [注册链接](https://cloud.siliconflow.cn/i/yWzlOTHL)
    - 邀请码：`yWzlOTHL`
 
-2. **OpenAI**
+4. **OpenAI**
    - [官网](https://platform.openai.com/)
    - 支持GPT-3.5、GPT-4等模型
 
-3. **Google Gemini**
+5. **Google Gemini**
    - [官网](https://ai.google.dev/)
    - 支持Gemini Pro等模型
-
-4. **百度文心一言**
-   - [官网](https://cloud.baidu.com/product/wenxinworkshop)
-   - 需要API Key和Secret Key
-
-5. **阿里云通义千问**
-   - [官网](https://dashscope.aliyun.com/)
-   - 需要API Key和Secret Key
 
 6. **Ollama (本地)**
    - [官网](https://ollama.ai/)
@@ -217,9 +213,9 @@ geyago/
 │   ├── 📄 package.json     # 前端依赖配置
 │   └── 📄 vite.config.ts   # Vite构建配置
 ├── 📁 tests/               # 测试代码
-├── 📁 .bmad-core/          # BMad工作流配置
 ├── 📄 pyproject.toml       # Python项目配置
 ├── 📄 Makefile           # 开发命令快捷方式
+├── 📄 config.example.json # 配置文件模板
 └── 📄 README.md          # 项目文档
 ```
 
@@ -411,11 +407,11 @@ npm run test:e2e
 - **包管理**: npm
 
 ### AI服务集成
-- **硅基流动** (默认) - 高性能AI服务
-- **OpenAI兼容接口** - 标准OpenAI API格式
+- **阿里云百炼平台** (默认) - 阿里云AI服务
+- **智谱AI** - GLM系列大模型
+- **硅基流动** - 高性能AI服务
+- **OpenAI** - OpenAI GPT系列模型
 - **Google Gemini** - Google最新AI模型
-- **百度文心一言** - 百度AI大模型
-- **阿里云通义千问** - 阿里云AI服务
 - **Ollama** - 本地AI模型部署
 
 ### 开发工具
@@ -515,7 +511,6 @@ server {
 
 ## 🙏 致谢
 
-- [SiliconFlow](https://siliconflow.cn) - 提供AI服务
 - [UV](https://github.com/astral-sh/uv) - 现代Python包管理器
 - [Flask](https://flask.palletsprojects.com) - Web框架
 
@@ -523,8 +518,8 @@ server {
 
 如有问题或建议，请通过以下方式联系：
 
-- 提交 [Issue](https://github.com/yourusername/geyago/issues)
-- 发送邮件到 your.email@example.com
+- 提交 [Issue](https://github.com/blankzsh/geyago/issues)
+- 发送邮件到 shell7@petalmail.com
 
 ---
 
