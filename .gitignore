@@ -189,16 +189,22 @@ $RECYCLE.BIN/
 
 # 🤖 AI工具链相关文件
 # Claude相关
+.claude/
 .claude/session_history/
 .claude/cache/
 
 # Serena相关
+.serena/
 .serena/cache/
 .serena/logs/
 
-# BMad工作流临时文件
+# BMad工作流文件
+.bmad-core/
 .bmad-core/temp/
 .bmad-core/cache/
+
+# Spec工作流文件
+spec-workflow/
 
 # 📦 项目特定忽略
 # 项目运行时生成的文件
