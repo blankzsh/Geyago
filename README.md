@@ -135,8 +135,7 @@ npm run dev
    - 支持GLM-4系列模型
 
 3. **硅基流动**
-   - [注册链接](https://cloud.siliconflow.cn/i/yWzlOTHL)
-   - 邀请码：`yWzlOTHL`
+   - [注册链接](https://cloud.siliconflow.cn/)
 
 4. **OpenAI**
    - [官网](https://platform.openai.com/)
