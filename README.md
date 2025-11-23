@@ -518,7 +518,7 @@ server {
 如有问题或建议，请通过以下方式联系：
 
 - 提交 [Issue](https://github.com/blankzsh/geyago/issues)
-- 发送邮件到 shell7@petalmail.com
+- 发送邮件到 wchiway@163.com
 
 ---
 
